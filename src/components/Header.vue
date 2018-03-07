@@ -1,5 +1,5 @@
-<section class="hero is-primary is-medium">
-  <!-- Hero head: will stick at the top -->
+<template>
+  <section class="hero is-info is-large">
   <div class="hero-head">
     <nav class="navbar">
       <div class="container">
@@ -7,13 +7,13 @@
           <a class="navbar-item">
             <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
           </a>
-          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+          <span class="navbar-burger burger" data-target="navbarMenuHeroB">
             <span></span>
             <span></span>
             <span></span>
           </span>
         </div>
-        <div id="navbarMenuHeroA" class="navbar-menu">
+        <div id="navbarMenuHeroB" class="navbar-menu">
           <div class="navbar-end">
             <a class="navbar-item is-active">
               Home
@@ -25,7 +25,7 @@
               Documentation
             </a>
             <span class="navbar-item">
-              <a class="button is-primary is-inverted">
+              <a class="button is-info is-inverted">
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
@@ -38,31 +38,85 @@
     </nav>
   </div>
 
-  <!-- Hero content: will be in the middle -->
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title">
+      <p class="title">
         Title
-      </h1>
-      <h2 class="subtitle">
+      </p>
+      <p class="subtitle">
         Subtitle
-      </h2>
+      </p>
     </div>
   </div>
 
-  <!-- Hero footer: will stick at the bottom -->
   <div class="hero-foot">
-    <nav class="tabs">
+    <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
-          <li class="is-active"><a>Overview</a></li>
-          <li><a>Modifiers</a></li>
-          <li><a>Grid</a></li>
-          <li><a>Elements</a></li>
-          <li><a>Components</a></li>
-          <li><a>Layout</a></li>
+          <li class="is-active">
+            <a>Overview</a>
+          </li>
+          <li>
+            <a>Modifiers</a>
+          </li>
+          <li>
+            <a>Grid</a>
+          </li>
+          <li>
+            <a>Elements</a>
+          </li>
+          <li>
+            <a>Components</a>
+          </li>
+          <li>
+            <a>Layout</a>
+          </li>
         </ul>
       </div>
     </nav>
   </div>
 </section>
+</template>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all "navbar-burger" elements
+    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Check if there are any nav burgers
+    if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(function($el) {
+            $el.addEventListener('click', function() {
+                // Get the target from the "data-target" attribute
+
+                var target = $el.dataset.target;
+                var $target = document.getElementById(target);
+                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                $el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+
+
+            });
+        });
+    }
+
+});
+
+
+
+
+export default {
+    methods: {
+        reload() {
+            var $toggle = $(".navbar-menu")
+            var $menu = $(".navbar-burger")
+
+            $toggle.toggleClass('is-active');
+            $menu.toggleClass('is-active');
+        }
+
+    }
+}
+
+</script>
+

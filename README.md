@@ -1,6 +1,6 @@
-# {{ name }}
+vue-cms
 
-> {{ description }}
+cms hecho en vue de un CRUD para un api de un blog
 
 ## Build Setup
 
