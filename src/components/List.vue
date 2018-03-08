@@ -4,7 +4,7 @@
 	    <div class="container">   
 	     <h1 class="title has-text-centered">
 	        LIST OF POSTS
-	      </h1>  
+	      </h1>  	      
 	        <label class="checkbox">
 			  <input type="checkbox">
 			 Ejemplo de post
@@ -20,3 +20,6 @@
 </template> 	
 
 
+<script>
+   
+</script>

@@ -4,7 +4,7 @@
 	    <div class="container">   
 	     <h1 class="title has-text-centered">
 	        NEW POST
-	      </h1>  
+	      </h1>  	     
 	        <label class="label">Title</label>
 	  		<div class="control">
 	   		 	<input class="input" type="text" placeholder="Post title">
@@ -18,9 +18,9 @@
 			 	<p class="help">Make it between 30 and 60 letters</p>   
 			<br>
    			<label class="label">Author</label>
-	  		<div class="control">
-	   		 	<input class="input" type="text" placeholder="Post author">
-	  		</div>	  
+	  		<b-field grouped>
+            <b-input placeholder="Author"></b-input>            
+        </b-field> 
 			<br>
 		    <label class="label">Content</label>
 		      <div class="control">
