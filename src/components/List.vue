@@ -1,0 +1,22 @@
+<template> 	
+	<section class="hero is-fullheight">		
+	  <div class="hero-body">
+	    <div class="container">   
+	     <h1 class="title has-text-centered">
+	        LIST OF POSTS
+	      </h1>  
+	        <label class="checkbox">
+			  <input type="checkbox">
+			 Ejemplo de post
+			</label>
+			<div class="control">
+				<a class="button is-success">Update</a>
+				<a class="button is-danger">Delete</a>
+			</div>
+			
+    	</div>   
+  	</div>
+</section>
+</template> 	
+
+

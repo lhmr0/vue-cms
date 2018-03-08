@@ -1,81 +1,28 @@
-<template>
-  <section class="hero is-info is-large">
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item">
-            <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
-          </a>
-          <span class="navbar-burger burger" data-target="navbarMenuHeroB">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <div id="navbarMenuHeroB" class="navbar-menu">
-          <div class="navbar-end">
-            <a class="navbar-item is-active">
-              Home
-            </a>
-            <a class="navbar-item">
-              Examples
-            </a>
-            <a class="navbar-item">
-              Documentation
-            </a>
-            <span class="navbar-item">
-              <a class="button is-info is-inverted">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>Download</span>
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
+<template> 
+    <div>
+        <nav class="navbar is-active is-mobile" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <router-link to="/" class="navbar-item" tag="a">
+                    <img src="https://hmr0.me/darth.png" alt="Panel de administración" width="30" height="30">
+                    PANEL DE ADMINISTRACIÓN
+                </router-link>                
+             <div class="navbar-burger burger" data-target="navmenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div id="navmenu" class="navbar-menu">
+                <div @click="reload" class="navbar-end">
+                    <router-link class="navbar-item has-text-centered" to="/post" active-class="is-active" exact>NEW</router-link>
+                    <router-link class="navbar-item has-text-centered" to="/list" active-class="is-active">UPDATE/DELETE</router-link>
 
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <p class="title">
-        Title
-      </p>
-      <p class="subtitle">
-        Subtitle
-      </p>
+                </div>
+            </div>
+        </nav>
+
     </div>
-  </div>
 
-  <div class="hero-foot">
-    <nav class="tabs is-boxed is-fullwidth">
-      <div class="container">
-        <ul>
-          <li class="is-active">
-            <a>Overview</a>
-          </li>
-          <li>
-            <a>Modifiers</a>
-          </li>
-          <li>
-            <a>Grid</a>
-          </li>
-          <li>
-            <a>Elements</a>
-          </li>
-          <li>
-            <a>Components</a>
-          </li>
-          <li>
-            <a>Layout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</section>
 </template>
 
 <script>
@@ -117,6 +64,5 @@ export default {
 
     }
 }
-
 </script>
 

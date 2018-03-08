@@ -6,8 +6,10 @@ import Buefy from 'buefy'
 import  'buefy/lib/buefy.css'
 
 Vue.use(VueRouter)
-Vue.use(Buefy);
-
+Vue.use(Buefy, {
+    defaultIconPack: 'fa',
+    defaultContainerElement: '#content',
+})
 const router = new VueRouter({	
 	routes,
 })
