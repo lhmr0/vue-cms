@@ -5,14 +5,11 @@
 	     <h1 class="title has-text-centered">
 	        LIST OF POSTS
 	      </h1>  	     
-		  <div v-for="i of data">
-			  <span>{{i.title}}</span>
-			</div>
-
-	        <label class="checkbox">
-			  <input type="checkbox">
-			 Ejemplo de post
-			</label>
+		  
+			<div v-for="i of data" class="field">           
+               {{i.title}}  <i class="fa fa-edit"></i>  <i class="fa fa-trash"></i>
+ 
+       	 </div>			              
 			<div class="control">
 				<a class="button is-success">Update</a>
 				<a class="button is-danger">Delete</a>
@@ -34,16 +31,15 @@
 
 	 data(){
 		 return{
-			 data:[]
+			 data:[],
+			  radio: 'post'
 		 }
 	 },
 		 methods: {
 			 leerApi(){
 				 axios.get('https://rest-mbcode.herokuapp.com/api/mypost')
-				 .then(response =>{
-					 
+				 .then(response =>{					 
 					 this.data = response.data
-					 console.log(this.data.title)
 				 }).catch(e =>{
 					 console.log(e)
 				 })
