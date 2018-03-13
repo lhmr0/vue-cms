@@ -7,13 +7,9 @@
 	      </h1>  	     
 		  
 			<div v-for="i of data" class="field">           
-               {{i.title}}  <i class="fa fa-edit"></i>  <i class="fa fa-trash"></i>
+               {{i.title}} <i class="fa fa-edit" @click="update(i._id)"></i>  <i class="fa fa-trash" @click="borrar(i._id)"></i>
  
-       	 </div>			              
-			<div class="control">
-				<a class="button is-success">Update</a>
-				<a class="button is-danger">Delete</a>
-			</div>
+       	 </div>			
 			
     	</div>   
   	</div>
@@ -43,9 +39,22 @@
 				 }).catch(e =>{
 					 console.log(e)
 				 })
-			 }
-		 }
-	 }
+			 },
+     	update(dato){
+          this.$router.push('/post/'+dato);
+        },
+       borrar(dato){       	
+          axios.delete(`https://rest-mbcode.herokuapp.com/api/mypost/${dato}`)
+				 .then(response =>{					 
+					 this.data = response.data;
+					 this.leerApi();
+				 }).catch(e =>{
+					 console.log(e)
+				 })
+        },	
+	}
+
+}
 
  
 </script>
