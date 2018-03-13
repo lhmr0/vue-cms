@@ -61,7 +61,13 @@ export default {
     return {
       id: this.$route.params.id,      
       recuperado:{},
-      post: {},
+      post: {
+      	title:'',
+      	description:'',
+      	author:'',
+      	content:'',
+      	url:'',
+      },
       isOpen: false
     }
   },
@@ -112,7 +118,7 @@ export default {
 				  this.recuperado = response.data[0],
 					 this.post.title = this.recuperado.title,
 					 this.post.description = this.recuperado.description,
-      				 this.post.autor= this.recuperado.autor,
+      				 this.post.author= this.recuperado.autor,
       				 this.post.content = this.recuperado.content,
       				 this.post.url = this.recuperado.img, 	
       				 console.log(this.recuperado)
