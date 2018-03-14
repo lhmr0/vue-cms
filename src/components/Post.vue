@@ -55,77 +55,93 @@
 
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
-      id: this.$route.params.id,      
-      recuperado:{},
+      id: this.$route.params.id,
+      recuperado: {},
       post: {
-      	title:'',
-      	description:'',
-      	author:'',
-      	content:'',
-      	url:'',
+        title: "",
+        description: "",
+        author: "",
+        content: "",
+        url: ""
       },
       isOpen: false
+    };
+  },
+  created() {
+    if (typeof this.id !== "undefined") {
+      window.document.title = "Update post " + this.id;
+      this.details();
+    } else {
+      window.document.title = "New post";
     }
   },
- created() {
-  	if(typeof this.id !== "undefined") {
-    window.document.title = "Update post " + this.id;
-    this.details();
-	}else{
-	window.document.title = "New post";	
-	}  	    
-  },
   methods: {
-   	 send() {
-   	if(typeof this.id !== "undefined") {
-    axios.put(`https://rest-mbcode.herokuapp.com/api/mypost/${this.id}`, {
-		    title: this.post.title,
-		    autor: this.post.author,
-		    description: this.post.description,
-		    content:this.post.content,
-		    img:this.post.url
-		  }).then(function (response) {
-		    console.log(response);
-		  }).catch(function (error) {
-		    console.log(error);
-		  });
-	}else{
-	 axios.post('https://rest-mbcode.herokuapp.com/api/mypost', {
-		    title: this.post.title,
-		    autor: this.post.author,
-		    description: this.post.description,
-		    content:this.post.content,
-		    img:this.post.url
-		  }).then(function (response) {
-		    console.log(response);
-		  }).catch(function (error) {
-		    console.log(error);
-		  });
-	}  	    
-  	this.post.title= '',
-    this.post.author= '',
-    this.post.description= '',
-    this.post.content='',
-    this.post.url=''    
+    send() {
+      if (typeof this.id !== "undefined") {
+        axios
+          .put(`https://rest-mbcode.herokuapp.com/api/mypost/${this.id}`, {
+            title: this.post.title,
+            autor: this.post.author,
+            description: this.post.description,
+            content: this.post.content,
+            img: this.post.url
+          })
+          .then(function(response) {
+            console.log(response);
+					
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+					this.$snackbar.open(`POST ACTUALIZADO`)
+          this.$router.push('/list');
+      } else {
+        axios
+          .post("https://rest-mbcode.herokuapp.com/api/mypost", {
+            title: this.post.title,
+            autor: this.post.author,
+            description: this.post.description,
+            content: this.post.content,
+            img: this.post.url
+					}
+					
+					)
+          .then(function(response) {
+            console.log(response);
+					
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+            this.$snackbar.open(`POST CREADO`)
+            this.$router.push('/list');
+      }
+      (this.post.title = ""),
+        (this.post.author = ""),
+        (this.post.description = ""),
+        (this.post.content = ""),
+        (this.post.url = "");
     },
     details() {
-    axios.get(`https://rest-mbcode.herokuapp.com/api/mypost/${this.id}`)
-				 .then(response =>{		
-				  this.recuperado = response.data[0],
-					 this.post.title = this.recuperado.title,
-					 this.post.description = this.recuperado.description,
-      				 this.post.author= this.recuperado.autor,
-      				 this.post.content = this.recuperado.content,
-      				 this.post.url = this.recuperado.img, 	
-      				 console.log(this.recuperado)
-				 }).catch(e =>{
-					 console.log(e)
-			});			   
-    }, 
+      axios
+        .get(`https://rest-mbcode.herokuapp.com/api/mypost/${this.id}`)
+        .then(response => {
+          (this.recuperado = response.data[0]),
+            (this.post.title = this.recuperado.title),
+            (this.post.description = this.recuperado.description),
+            (this.post.author = this.recuperado.autor),
+            (this.post.content = this.recuperado.content),
+            (this.post.url = this.recuperado.img),
+            console.log(this.recuperado);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   }
-}
+};
 </script>

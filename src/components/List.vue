@@ -24,7 +24,6 @@
 	 mounted(){
 		 this.leerApi()
 	 },
-
 	 data(){
 		 return{
 			 data:[],
